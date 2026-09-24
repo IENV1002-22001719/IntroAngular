@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="mb-3">
+                    <form>
+                        <div class="form-group pt-4">
+                            <label for="num1">Base</label>
+                            <input [(ngModel)]="base" name="base" type="text" class="form-control" id="base" placeholder="Ingrese la base" />
+                        </div>
+                        <div class="form-group pt-4">
+                            <label for="num2">Altura</label>
+                            <input [(ngModel)]="altura" name="altura" type="text" class="form-control" id="altura" placeholder="Ingrese la altura" />
+                        </div>
+
+                        <br/>
+                        
+                        <!-- Mensaje condicional arriba de los radio buttons -->
+                        <div *ngIf="operacion === 'circulo'" class="alert alert-info py-2" role="alert">
+                            <strong>Nota:</strong> Para el cálculo el area del círculo solo se tomará el valor de la <strong>base</strong> como radio.
+                        </div>
+                        <br/>
+
+                        <input type="radio" class="form-check-input" id="rectangulo" name="operacion" value="rectangulo" [(ngModel)]="operacion">
+                        <label class="form-check-label" for="divi">Rectangulo</label>
+                        <br/>
+
+                        <input type="radio" class="form-check-input" id="triangulo" name="operacion" value="triangulo" [(ngModel)]="operacion">
+                        <label class="form-check-label" for="divi">Triangulo</label>
+                        <br/>
+
+                        <input type="radio" class="form-check-input" id="circulo" name="operacion" value="circulo" [(ngModel)]="operacion">
+                        <label class="form-check-label" for="divi">Circulo</label>
+                        <br/>
+
+                        <input type="radio" class="form-check-input" id="pentagono" name="operacion" value="pentagono" [(ngModel)]="operacion">
+                        <label class="form-check-label" for="divi">Pentagono</label>
+                        <br/>
+                        <button  type="button" class="btn btn-primary" (click)="calcularArea()">
+                            Calcular
+                        </button>
+                    </form>
+                </div>
+                <div class="col-6">
+                    <h3>Resultado: {{resultado}}</h3>
+                </div>
